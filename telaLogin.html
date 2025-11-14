@@ -10,15 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="retEsquerda"></div>
+    <div id="retEsquerda">
+        <img src="imgs/Camada_1-1.svg" id="logo">
+    </div>
     <div id="retDireita"> 
         <div id="loginBox">
             <h3>Bem vindo ao Bibliotec, o melhor lugar para fazer sua reserva de livros.</h3>
             <form action="Bibliotec/telaInicio" method="post"> 
                 <input type="text" id="username" name="username" placeholder="Username:" required>
                 <input type="password" id="password" name="password" placeholder="Password:" required>
+                <input type="checkbox" name="mostrarSenha" id="btnMostrarSenha"> <label for="" id="txtMostrarSenha">Mostrar Senha</label>
                 <button type="submit" id="btnEntrar">Entrar</button>
                 <button type="submit" id="btnCadastrar">Cadastrar</button>
+                <script src="telaLogin.js"></script>
             </form>
         </div>
     </div>
