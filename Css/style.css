@@ -92,6 +92,42 @@ h1 {
   background: #1b5c8d;
 }
 
+.botoes-acao {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 12px;
+}
+
+.btn-favoritar {
+  background: transparent;
+  border: 2px solid var(--cor-primaria);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  min-width: 44px;
+  height: 44px;
+}
+
+.btn-favoritar .material-symbols-outlined {
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+}
+
+.btn-favoritar:hover {
+  background: rgba(38, 51, 61, 0.1);
+  transform: scale(1.05);
+}
+
+.btn-favoritar.active .material-symbols-outlined {
+  color: #e0245e;
+  font-variation-settings: 'FILL' 1;
+}
+
 /* Footer fixo no final da tela */
 footer {
   margin-top: auto;

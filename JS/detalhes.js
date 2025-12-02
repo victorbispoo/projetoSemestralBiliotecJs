@@ -108,3 +108,58 @@ if (botaoVoltar) {
 		window.history.back();
 	});
 }
+
+// ===== TAGS / INFORMAÇÕES TÉCNICAS DINÂMICAS =====
+// categorias / tags (ex.: Conto, Ficção)
+livro.categorias = ['Conto', 'Ficção'];
+
+document.querySelectorAll('.info-item').forEach(item => {
+	const titleEl = item.querySelector('.info-titulo');
+	if (!titleEl) return;
+	const key = titleEl.textContent.trim().replace(':', '').toLowerCase();
+
+	if (key === 'idioma') {
+		// atualiza a tag existente (se houver)
+		const tagEl = item.querySelector('.tag');
+		if (tagEl) tagEl.textContent = livro.idioma || tagEl.textContent;
+		else if (livro.idioma) {
+			const span = document.createElement('span');
+			span.className = 'tag';
+			span.textContent = livro.idioma;
+			item.appendChild(span);
+		}
+	}
+
+	if (key === 'categoria' || key === 'categorias') {
+		// remove tags estáticas e cria dinamicamente a partir de livro.categorias
+		item.querySelectorAll('.tag').forEach(e => e.remove());
+		if (Array.isArray(livro.categorias)) {
+			livro.categorias.forEach(cat => {
+				const span = document.createElement('span');
+				span.className = 'tag';
+				span.textContent = cat;
+				item.appendChild(span);
+			});
+		}
+	}
+});
+
+// ===== BOTÃO FAVORITAR =====
+const btnFavoritar = document.getElementById('favoritarBTN');
+if (btnFavoritar) {
+	btnFavoritar.addEventListener('click', function() {
+		btnFavoritar.classList.toggle('active');
+		// opcional: persistência em localStorage
+		const isActive = btnFavoritar.classList.contains('active');
+		if (isActive) {
+			localStorage.setItem('favorito_' + livro.titulo, '1');
+		} else {
+			localStorage.removeItem('favorito_' + livro.titulo);
+		}
+	});
+	// restaurar estado anterior se estiver salvo
+	if (localStorage.getItem('favorito_' + livro.titulo)) {
+		btnFavoritar.classList.add('active');
+	}
+}
+
