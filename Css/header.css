@@ -8,6 +8,7 @@
   color: white;
   z-index: 2;
 }
+
 .logo {
   font-weight: bold;
   text-decoration: none;
@@ -46,7 +47,6 @@
   transform: scale(1.05);
 }
 
-
 .nav-desktop .material-symbols-outlined {
   font-size: 2.0rem;
   vertical-align: middle;
@@ -56,6 +56,7 @@
 .nav-mobile {
   display: none;
 }
+
 .mobile-menu-icon {
   display: none;
 }
@@ -88,12 +89,7 @@
   cursor: pointer;
 }
 
-/*
-============================
- PARTE MOBILE
-============================
-*/
-
+/* ============================ PARTE MOBILE HEADER ============================ */
 @media (max-width: 768px) {
   .nav-desktop {
     display: none;
@@ -111,11 +107,11 @@
 
   .nav-mobile {
     position: absolute;
-    top: 100%;    
+    top: 100%;
     right: 0;
     width: 100%;
     background: var(--cor-primaria);
-    z-index: 1;  
+    z-index: 1;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -143,8 +139,7 @@
     gap: 0.4rem;
   }
 
-   .nav-mobile .material-symbols-outlined 
-   {
+  .nav-mobile .material-symbols-outlined {
     font-size: 2.0rem;
     vertical-align: middle;
     line-height: 1;
@@ -166,10 +161,8 @@
     background-color: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
   }
-  
+
   .nav-mobile.is-open {
     display: block;
   }
-
- 
 }
