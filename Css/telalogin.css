@@ -77,12 +77,8 @@ body, html {
 }
 
 #logo {
-    height: 45%;
-    max-height: 45%;
-    min-height: 45%;
-    width: 45%;
-    min-width: 45%;
-    max-width: 45%;
+    height: 300px;
+    width: 200px;
 }
 #txtMostrarSenha {
     font-size: 12px;
@@ -144,7 +140,100 @@ body, html {
 #facebook, #instagram, #linkedin {
     width: 20px;
     height: 20px;
+    filter: invert(1) hue-rotate(180deg) brightness(5);
 }
 #linhaSenha {
     max-width: 90%;
+}
+#EsqueciSenha {
+    display: none;
+}
+
+/* Responsive: mobile and small tablets */
+@media (max-width: 768px) {
+    html, body {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* make the two columns stack vertically */
+    #retEsquerda, #retDireita {
+        width: 100%;
+    }
+    #retEsquerda {
+        height: 150px;
+        display: flex;
+        justify-content: left;
+        padding: 20px 0;
+    }
+    #logo {
+        margin: 0 20px;
+        height: 80px;
+        width: auto;
+    }
+
+    /* make the login area full width and readable */
+    #retDireita {
+        padding-top: 20px;
+        background-color: #e9f0ef;
+    }
+
+    #loginBox{
+        width: 92%;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    /* inputs and buttons full width */
+    #username, #password {
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    #btns {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #btnEntrar, #btnCadastrar {
+        width: 80%;
+        padding: 12px;
+        margin: 0px 0;
+        font-size: 16px;
+    }
+
+    /* position the "mostrar senha" and "esqueci" on one line that wraps if needed */
+    #linhaSenha {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
+        margin-bottom: auto;
+    }
+
+    #txtMostrarSenha { font-size: 13px; }
+    #lblEsqueciSenha {  margin-left: auto; font-size: 13px;}
+
+    /* redes sociais: make icons slightly bigger and centered */
+    #redesSociais {
+        padding: 12px 8px;
+        height: auto;
+        justify-content: center;
+    }
+
+    #facebook, #instagram, #linkedin {
+        width: 20px;
+        height: 20px;
+    }
+
+}
+
+/* Extra small screens */
+@media (max-width: 420px) {
+    #logo { height: 48px; max-width: 70%; }
+    #loginBox { padding: 16px; }
+    #username, #password { font-size: 15px; padding: 10px; }
+    #btnEntrar, #btnCadastrar { font-size: 15px; padding: 10px; }
+    #facebook, #instagram, #linkedin { width: 22px; height: 22px; }
 }
