@@ -4,7 +4,6 @@ fetch('Header.html')
   .then(html => {
     document.getElementById('header-placeholder').innerHTML = html;
 
-    // ...changed code...
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
