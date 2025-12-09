@@ -67,12 +67,6 @@
   margin: 0;
 }
 
-/* Ícone favorito preenchido */
-.book-card .material-symbols-outlined {
-  font-variation-settings: 'FILL' 1;
-  color: #e0245e;
-}
-
 /* Tag */
 .tag {
   background: #c3d6ff;
@@ -102,11 +96,21 @@ h3 {
   padding: 8px;
 }
 
-.favorite-btn:hover {
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-  background: rgba(38, 51, 61, 0.1);
+.favorite-btn .material-symbols-outlined {
+  color: #e0245e;
 }
+
+.favorite-btn:hover {
+  border-color: #5d6b80;
+  transform: scale(1.05);
+  transition: all 0.4s ease;
+  background: rgba(73, 72, 72, 0.1);
+  .material-symbols-outlined {
+    color: rgba(10, 1, 1, 0.1);
+    transition: all 0.4s ease;
+  }
+}
+
 /* TABLET: 2 colunas */
 @media (max-width: 1024px) {
   .books-grid {

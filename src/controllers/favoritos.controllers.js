@@ -91,3 +91,35 @@ export async function DeletarFavoritos(req, res) {
         res.status(500).json({ erro: "Erro interno do servidor ao tentar deletar o favorito.", detalhes: err.message });
     }
 };
+
+export async function listarFavoritosPorID(req, res) {
+  try {
+    const { id } = req.params;
+
+    const sql = `
+      SELECT 
+      u.id AS usuario_id,
+      u.nome AS nome_usuario,
+      l.id AS livro_id,
+      l.titulo AS titulo_livro,
+      l.caminho_capa AS caminho_capa ,
+      l.autor AS autor
+      FROM favoritos f
+      JOIN usuarios u ON f.usuario_id = u.id
+      JOIN livros l ON f.livro_id = l.id
+      WHERE u.id =?;
+    `;
+
+    const [rows] = await db.query(sql, [id]);
+
+    if (rows.length === 0) {
+      return res.status(200).json([]);
+    }
+
+    res.status(200).json(rows);
+
+  } catch (error) {
+    console.error("Erro ao obter reserva:", error);
+    return res.status(500).json({ error: "Erro interno" });
+  }
+};
