@@ -61,3 +61,15 @@ document.addEventListener("click", (e) => {
       icon.textContent === "favorite" ? "favorite_border" : "favorite";
   }
 });
+
+function adicionarEventos() {
+    const btnVoltar = document.getElementById("voltar_inicio");
+
+    if (btnVoltar) {
+        btnVoltar.addEventListener("click", () => {
+            window.history.back();
+        });
+    }
+}
+
+adicionarEventos();
