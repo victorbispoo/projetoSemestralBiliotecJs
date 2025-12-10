@@ -5,12 +5,14 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+
 #retEsquerda  {
     background-color: #26333D;
     width: 50%;
     height: 100vh;
     display: flex;
     justify-content: center;   
+    
     align-items: center;
 }
 #retDireita {

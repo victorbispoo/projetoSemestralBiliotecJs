@@ -1,0 +1,11 @@
+.perfil-icone {
+ font-size: 120px;
+ color: #26333d;
+user-select: none;
+}
+
+.perfil-container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
