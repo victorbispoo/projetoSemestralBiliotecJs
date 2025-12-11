@@ -1,19 +1,45 @@
+const API_URL = "http://localhost:3000";
+var formLogin = document.getElementById('formLogin');
 var chk = document.getElementById('btnMostrarSenha');
 var senha = document.getElementById('password');
 var username = document.getElementById('username');
 var lblEsqueciSenha = document.getElementById('lblEsqueciSenha');
+async function extrairListaUsuarios() {
+    try {
+        const resp = await fetch(`${API_URL}/usuarios`);
+        if (!resp.ok) throw new Error(`Erro ao buscar usuários: ${resp.status}`);
+        const listaUsuarios = await resp.json();
+        console.log('Lista de usuários extraída:', listaUsuarios);
+        return listaUsuarios;
+    } catch (erro) {
+        console.error('Erro ao extrair usuários:', erro.message);
+        return [];
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function(){
     chk.addEventListener('change', function(){
         if(senha) senha.type = chk.checked ? 'text' : 'password';
     });
     
-    lblEsqueciSenha.addEventListener('click', function() {
-        // Remove o atributo required dos campos
-        username.removeAttribute('required');
-        senha.removeAttribute('required');
-        
-        // Navega para a página de recuperação de senha
-        window.location.href = 'telaRecuperarSenha.html';
+    formLogin.addEventListener('submit', async function(e){
+        e.preventDefault();
+        const listaUsuarios = await extrairListaUsuarios();
+        if(username && senha && listaUsuarios.length > 0) { 
+            const usuarioEncontrado = listaUsuarios.some(perfil => 
+                perfil.nome === username.value || perfil.email === username.value
+            );
+            const senhaCorreta = listaUsuarios.some(perfil => 
+                perfil.senha === senha.value
+            );
+            if(usuarioEncontrado && senhaCorreta) {
+                console.log('Usuário autenticado com sucesso!');
+                window.location.href = '/FrontEnd/telaInicial.html';
+            } else {
+                alert('Usuário ou senha inválidos!');
+            }
+        } else {
+            alert('Por favor, preencha os campos obrigatórios.');
+        }
     });
 });
