@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:3000";
-const id_usuario = 4; 
 
 async function carregarReservas() {
   const statusGrid = document.getElementById("livrosPorCategoria");
@@ -31,4 +30,15 @@ async function carregarTituloCategoria() {
     titulo.textContent = `Categoria: ${dados.nome}`;
 }
 
+function adicionarEventos() {
+    const btnVoltar = document.getElementById("voltar_inicio");
+
+    if (btnVoltar) {
+        btnVoltar.addEventListener("click", () => {
+            window.history.back();
+        });
+    }
+}
+
+adicionarEventos();
 carregarTituloCategoria();

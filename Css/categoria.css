@@ -17,11 +17,10 @@
 
 /* Grid com 4 livros no desktop */
 .books-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  transition: transform 0.35s ease;
   padding-inline: clamp(12px, 3vw, 60px);
-  align-items: flex-start;
 }
 
 /* Card */
@@ -80,40 +79,16 @@
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 22px;
   font-family: montserrat, sans-serif;
   color: white;
   text-align: center;
-}
-.book-card .favorite-btn{
-  margin-top: auto;
-}
-
-.favorite-btn {
-  background: transparent;
-  border-radius: 100px;
-  border-color: #e0245e;
-  padding: 8px;
-}
-
-.favorite-btn .material-symbols-outlined {
-  color: #e0245e;
-}
-
-.favorite-btn:hover {
-  border-color: #5d6b80;
-  transform: scale(1.05);
-  transition: all 0.4s ease;
-  background: rgba(73, 72, 72, 0.1);
-  .material-symbols-outlined {
-    color: rgba(10, 1, 1, 0.1);
-    transition: all 0.4s ease;
-  }
 }
 
 /* TABLET: 2 colunas */
 @media (max-width: 1024px) {
   .books-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
@@ -131,6 +106,7 @@ h3 {
 /* MOBILE: 2 colunas (mantém em mobile também) */
 @media (max-width: 768px) {
   .books-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }

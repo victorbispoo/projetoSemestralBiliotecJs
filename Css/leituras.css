@@ -17,11 +17,10 @@
 
 /* Grid com 4 livros no desktop */
 .books-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  transition: transform 0.35s ease;
   padding-inline: clamp(12px, 3vw, 60px);
-  align-items: flex-start;
 }
 
 /* Card */
@@ -114,6 +113,7 @@ h3 {
 /* TABLET: 2 colunas */
 @media (max-width: 1024px) {
   .books-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
   }
@@ -131,6 +131,7 @@ h3 {
 /* MOBILE: 2 colunas (mantém em mobile também) */
 @media (max-width: 768px) {
   .books-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
