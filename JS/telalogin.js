@@ -1,3 +1,5 @@
+import { carregarDetalhesLivro, renderizarDetalhesLivro } from "./detalhes";
+
 const API_URL = "http://localhost:3000";
 var formLogin = document.getElementById('formLogin');
 var chk = document.getElementById('btnMostrarSenha');
