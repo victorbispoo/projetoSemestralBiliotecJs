@@ -6,6 +6,7 @@ import livrosRoutes from "./routes/livros.routes.js";
 import avaliacoesRoutes from "./routes/avaliacoes.routes.js";
 import reservasRoutes from "./routes/reservas.routes.js";
 import favoritosRoutes from "./routes/favoritos.routes.js";
+import categoriaRoutes from "./routes/categorias.routes.js";
 
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ app.use("/livros", livrosRoutes);
 app.use("/avaliacoes", avaliacoesRoutes);
 app.use("/reservas", reservasRoutes);
 app.use("/favoritos", favoritosRoutes);
+app.use("/categorias", categoriaRoutes);
 
 // ============================
 //  Inicia o servidor
