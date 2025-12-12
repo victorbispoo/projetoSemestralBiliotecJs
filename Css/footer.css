@@ -1,11 +1,8 @@
 
 footer {
   display: block;
-<<<<<<< HEAD
   position: fixed;
   bottom: 0;
-=======
->>>>>>> e84981e24bc86372d95c55a421c56116e0148fb1
   width: 100%;
   background: var(--cor-primaria);
   color: white;
