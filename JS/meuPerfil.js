@@ -1,11 +1,13 @@
  const id = 5;
  localStorage.setItem("usuarioId", id);
 let editando = false;
+ const fotodePerfil = document.getElementById("fotoPerfil");
  const btnEditar = document.getElementById("editarPerfilBtn");
   const spanNome = document.getElementById("nomeUsuario")
   const spanEmail = document.getElementById("emailUsuario")
   const spanSenha = document.getElementById("senhaUsuario")
-  const spanTelefone = document.getElementById("telefoneUsuario")
+
+
 
 async function carregarPerfil() {
   try{
@@ -14,7 +16,7 @@ async function carregarPerfil() {
     spanNome.textContent = dados.nome;
     spanEmail.textContent = dados.email;
     spanSenha.textContent = dados.senha;
-    spanTelefone.textContent = dados.telefone;
+    document.getElementById("fotoPerfil").src = dados.foto || "../IMGS/capas/domcasmurro.jpg";
   } catch (erro) {
     console.error("Erro ao carregar perfil:", erro);
   }
@@ -37,19 +39,21 @@ function entrarModoEdicao() {
     spanNome.innerHTML = `<input type="text" id="inputNome" value="${spanNome.textContent}">`;
     spanEmail.innerHTML = `<input type="email" id="inputEmail" value="${spanEmail.textContent}">`;
     spanSenha.innerHTML = `<input type="text" id="inputSenha" value="${spanSenha.textContent}">`;
-    spanTelefone.innerHTML = `<input type="tel" id="inputTelefone" value="${spanTelefone.textContent}">`;
 }
 
 async function salvarPerfil() {
     const novoNome = document.getElementById("inputNome").value;
     const novoEmail = document.getElementById("inputEmail").value;
     const novaSenha = document.getElementById("inputSenha").value;
-    const novoTelefone = document.getElementById("inputTelefone").value;
+        console.log("Valores a serem enviados:", {
+        nome: novoNome,
+        email: novoEmail,
+        senha: novaSenha,
+    });
     const body = {
         nome: novoNome,
         email: novoEmail,
         senha: novaSenha,
-        telefone: novoTelefone
     };
     try {
         const resposta = await fetch(`http://localhost:3000/usuarios/${id}`, {
@@ -75,3 +79,35 @@ async function salvarPerfil() {
     }
 }
 carregarPerfil();
+
+const fotoPerfil = document.getElementById("fotoPerfil");
+const inputFoto = document.getElementById("inputFoto");
+
+fotoPerfil.addEventListener("click", () => {
+  inputFoto.click();
+});
+inputFoto.addEventListener("change", () => {
+  const arquivo = inputFoto.files[0];
+  if (!arquivo) return;
+
+  const url = URL.createObjectURL(arquivo);
+  fotoPerfil.src = url;
+});
+
+document.getElementById("inputFoto").addEventListener("change", async (e) => {
+    const arquivo = e.target.files[0];
+    if (!arquivo) return;
+
+    const reader = new FileReader();
+    reader.onload = async () => {
+        const base64 = reader.result;
+
+        await fetch(`http://localhost:3000/usuarios/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ foto: base64 })
+        });
+    };
+    
+    reader.readAsDataURL(arquivo);
+});

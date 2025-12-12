@@ -20,12 +20,15 @@
   </div>
   <div class="perfil-container">
     <div class="background-perfil">
-   <span class="material-symbols-outlined perfil-icone">account_circle</span>
+   <div class="perfil-img-area">
+    <input type="file" id="inputFoto" accept="image/*"hidden>
+    <img id="fotoPerfil" class="foto-perfil">
+</div>
+
     <div class="perfil-info">
       <h2 id="nomeUsuario"></h2>
       <h3>Email: <span id="emailUsuario"></span></h3>
       <h3>Senha: <span id="senhaUsuario"></span></h3>
-      <h3>Telefone: <span id="telefoneUsuario"></span></h3>
       <button id="editarPerfilBtn">Editar Perfil</button>
       </div>
   </div>

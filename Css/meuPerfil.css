@@ -1,3 +1,7 @@
+footer{
+  display: block;
+  position: fixed;
+}
 .perfil-icone {
  font-size: 120px;
  color: #ffffff;
@@ -10,20 +14,26 @@ justify-content: center;
  display: flex;
  flex-direction: column;
  align-items: center;
+ justify-content: center;
 }
 .background-perfil {
  background-color: #26333d;
  display: flex;
  flex-direction: column;
  padding: 20px;
- justify-content: center;
  border-radius: 10px;
  width: 60%;
+
 }
 input{
   width: 60%;
   padding: 8px;
   border-radius: 10px;
+}
+input:focus {
+  outline: none;
+  box-shadow: 0 0 15px var(--cor-primaria);
+  border: 1px solid var(--cor-primaria);
 }
 h3{
  color: #fff;
@@ -45,4 +55,23 @@ justify-content: center;
 #editarPerfilBtn:hover {
   background: #1b5c8d;
   color: #fff;
+}
+
+.perfil-img-area {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#fotoPerfil {
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

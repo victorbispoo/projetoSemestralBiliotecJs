@@ -1,7 +1,5 @@
 
 footer {
-  display: block;
-  position: fixed;
   bottom: 0;
   width: 100%;
   background: var(--cor-primaria);
@@ -13,3 +11,4 @@ footer {
 footer p {
   margin: 0;
 }
+

@@ -43,6 +43,21 @@ INSERT INTO `avaliacoes` (`id`, `usuario_id`, `livro_id`, `nota`, `comentario`, 
 	(5, 2, 3, 3.5, 'Ideia interessante, mas um pouco confusa em alguns trechos.', '2025-11-13 12:13:44'),
 	(6, 3, 5, 0.5, 'Horrivel.', '2025-11-13 12:13:44');
 
+-- Copiando estrutura para tabela dblivraria.categoria
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `categoria` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+-- Copiando dados para a tabela dblivraria.categoria: ~5 rows (aproximadamente)
+INSERT INTO `categoria` (`id`, `categoria`) VALUES
+	(1, 'Fantasia'),
+	(2, 'Ficção'),
+	(3, 'Romance'),
+	(4, 'Tecnologia'),
+	(5, 'Aventura');
+
 -- Copiando estrutura para tabela dblivraria.favoritos
 CREATE TABLE IF NOT EXISTS `favoritos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,15 +93,36 @@ CREATE TABLE IF NOT EXISTS `livros` (
   `criado_em` timestamp NULL DEFAULT current_timestamp(),
   `atualizado_em` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela dblivraria.livros: ~5 rows (aproximadamente)
+-- Copiando dados para a tabela dblivraria.livros: ~6 rows (aproximadamente)
 INSERT INTO `livros` (`id`, `titulo`, `autor`, `categoria`, `editora`, `ano_publicacao`, `isbn`, `idioma`, `formato`, `caminho_capa`, `sinopse`, `ativo`, `criado_em`, `atualizado_em`) VALUES
 	(1, 'Filhas da Lua', 'Carolina França', 'Fantasia / Romance', 'Pandorga', 2018, '9788568263952', 'Português', 'Físico', '../IMGS/capas/filhasdalua.jpg', 'Trilogia sobre jovens com poderes lunares e uma antiga profecia.', 0, '2025-11-13 12:13:17', '2025-12-08 12:04:50'),
 	(2, 'TI para Negócios', 'Edson Perin', 'Tecnologia / Gestão', 'M. Books', 2010, '9788578271541', 'Português', 'E-book', '../IMGS/capas/tiparanegocios.jpg', 'Mostra como a TI pode impulsionar resultados empresariais.', 1, '2025-11-13 12:13:17', '2025-12-08 12:05:25'),
 	(3, 'Mestres do Tempo', 'R. V. Campbell', 'Ficção Científica', 'Arqueiro', 2017, '9788580417432', 'Português', 'Físico', '../IMGS/capas/mestresdotempo.jpg', 'Explora viagens no tempo e dilemas morais sobre alterar o passado.', 1, '2025-11-13 12:13:17', '2025-12-08 12:05:03'),
 	(4, 'O Código Limpo', 'Robert C. Martin', 'Tecnologia / Programação', 'Alta Books', 2009, '9788576082675', 'Português', 'Físico', '../IMGS/capas/codigolimpo.jpg', 'Guia essencial sobre boas práticas e padrões de código limpo.', 1, '2025-11-13 12:13:17', '2025-12-08 12:05:33'),
-	(5, 'Dom Casmurro', 'Machado de Assis', 'Romance Clássico', 'Principis', 1899, '9788580574463', 'Português', 'Físico', '../IMGS/capas/domcasmurro.jpg', 'Um dos maiores clássicos da literatura brasileira, explorando ciúme e ambiguidade.', 1, '2025-11-13 12:13:17', '2025-12-08 12:04:47');
+	(5, 'Dom Casmurro', 'Machado de Assis', 'Romance Clássico', 'Principis', 1899, '9788580574463', 'Português', 'Físico', '../IMGS/capas/domcasmurro.jpg', 'Um dos maiores clássicos da literatura brasileira, explorando ciúme e ambiguidade.', 1, '2025-11-13 12:13:17', '2025-12-08 12:04:47'),
+	(6, 'Hora de Aventura - É hora de diversão', 'Ciranda Cultural', 'Aventura', 'Ciranda Cultural', 2015, '9788538062363', 'Português', 'Físico', '..//IMGS/capas/hora-de-aventura.jpg', 'Divirta-se colorindo os seus personagens favoritos de Hora de Aventura! Acompanhe Jake, Finn e seus amigos em aventuras emocionantes na Terra de Ooo enquanto dá vida às cenas com suas cores preferidas.', 1, '2025-12-12 13:09:41', '2025-12-12 13:13:36');
+
+-- Copiando estrutura para tabela dblivraria.livros_categorias
+CREATE TABLE IF NOT EXISTS `livros_categorias` (
+  `livro_id` int(11) NOT NULL,
+  `categoria_id` int(11) NOT NULL,
+  KEY `id_categoria` (`categoria_id`) USING BTREE,
+  KEY `id_livro` (`livro_id`) USING BTREE,
+  CONSTRAINT `livros_categorias_ibfk_1` FOREIGN KEY (`livro_id`) REFERENCES `livros` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `livros_categorias_ibfk_2` FOREIGN KEY (`categoria_id`) REFERENCES `categoria` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+
+-- Copiando dados para a tabela dblivraria.livros_categorias: ~7 rows (aproximadamente)
+INSERT INTO `livros_categorias` (`livro_id`, `categoria_id`) VALUES
+	(1, 1),
+	(1, 3),
+	(2, 4),
+	(3, 2),
+	(4, 4),
+	(5, 3),
+	(6, 5);
 
 -- Copiando estrutura para tabela dblivraria.reservas
 CREATE TABLE IF NOT EXISTS `reservas` (
@@ -102,13 +138,16 @@ CREATE TABLE IF NOT EXISTS `reservas` (
   KEY `livro_id` (`livro_id`),
   CONSTRAINT `reservas_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE,
   CONSTRAINT `reservas_ibfk_2` FOREIGN KEY (`livro_id`) REFERENCES `livros` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
--- Copiando dados para a tabela dblivraria.reservas: ~2 rows (aproximadamente)
+-- Copiando dados para a tabela dblivraria.reservas: ~6 rows (aproximadamente)
 INSERT INTO `reservas` (`id`, `usuario_id`, `livro_id`, `data_retirada`, `data_devolucao`, `confirmado_email`, `criado_em`) VALUES
 	(1, 4, 4, '2025-12-09', '2026-01-05', 0, '2025-12-09 11:55:36'),
 	(2, 4, 2, '2025-12-09', '2026-01-03', 0, '2025-12-09 13:32:55'),
-	(3, 5, 5, '2025-12-09', '4025-12-09', 1, '2025-12-09 13:52:25');
+	(3, 5, 5, '2025-12-09', '4025-12-09', 1, '2025-12-09 13:52:25'),
+	(4, 4, 6, '2025-12-12', '2025-12-21', 0, '2025-12-12 13:50:05'),
+	(5, 4, 1, '2025-12-12', '2026-01-01', 0, '2025-12-12 13:50:26'),
+	(6, 4, 3, '2025-12-12', '2025-12-12', 0, '2025-12-12 14:21:11');
 
 -- Copiando estrutura para tabela dblivraria.usuarios
 CREATE TABLE IF NOT EXISTS `usuarios` (
@@ -117,20 +156,21 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
   `data_nascimento` date DEFAULT NULL,
-  `celular` varchar(20) DEFAULT NULL,
+  `telefone` varchar(20) DEFAULT NULL,
   `curso` varchar(100) DEFAULT NULL,
   `perfil` enum('Aluno','Admin') DEFAULT 'Aluno',
+  `foto` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 
 -- Copiando dados para a tabela dblivraria.usuarios: ~5 rows (aproximadamente)
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `data_nascimento`, `celular`, `curso`, `perfil`) VALUES
-	(1, 'Vitor Lima', 'vitor.lima@email.com', '1234', NULL, NULL, NULL, 'Aluno'),
-	(2, 'Pedro Campos', 'pedro.campos@email.com', 'abcd', NULL, NULL, NULL, 'Aluno'),
-	(3, 'Wendel Duque', 'duque@email.com', 'senha123', NULL, NULL, NULL, 'Admin'),
-	(4, 'Davi Guedes', 'davi.guedes@email.com', 'teste123', NULL, NULL, NULL, 'Admin'),
-	(5, 'Victor Bispo', 'bispolaa@email.com', '2222', NULL, NULL, NULL, 'Admin');
+INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `data_nascimento`, `telefone`, `curso`, `perfil`, `foto`) VALUES
+	(1, 'Vitor Lima', 'vitor.lima@email.com', '1234', NULL, NULL, NULL, 'Aluno', NULL),
+	(2, 'Pedro Campos', 'pedro.campos@email.com', 'abcd', NULL, NULL, NULL, 'Aluno', NULL),
+	(3, 'Wendel Duque', 'duque@email.com', 'senha123', NULL, NULL, NULL, 'Admin', NULL),
+	(4, 'Davi Guedes', 'davi.guedes@email.com', 'teste123', NULL, NULL, NULL, 'Admin', NULL),
+	(5, 'Victor Bispo', 'bispolaa@email.com', '10101', NULL, '1198686', NULL, 'Admin', NULL);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
