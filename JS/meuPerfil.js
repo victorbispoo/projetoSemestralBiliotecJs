@@ -1,5 +1,4 @@
- import { id } from './telalogin.js';
- localStorage.setItem("usuarioId", id);
+const id = localStorage.getItem("userId");
 let editando = false;
  const btnEditar = document.getElementById("editarPerfilBtn");
    const spanNome = document.getElementById("nomeUsuario")
@@ -11,12 +10,15 @@ async function carregarPerfil() {
   try{
   const resposta = await fetch(`http://localhost:3000/usuarios/${id}`);
   const dados = await resposta.json();
+    console.log("Carregando perfil do usuário com ID: " + id);
     spanNome.textContent = dados.nome;
     spanEmail.textContent = dados.email;
     spanSenha.textContent = dados.senha;
     spanTelefone.textContent = dados.telefone;
   } catch (erro) {
     console.error("Erro ao carregar perfil:", erro);
+      console.log("Carregando perfil do usuário com ID: " + id);
+
   }
 }
 

@@ -46,3 +46,17 @@ justify-content: center;
   background: #1b5c8d;
   color: #fff;
 }
+
+#sairPerfilBtn {
+  background: #fff;
+  color:#26333d;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#sairPerfilBtn:hover {
+  background: #1b5c8d;
+  color: #fff;
+}
