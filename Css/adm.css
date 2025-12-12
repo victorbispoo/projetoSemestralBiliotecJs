@@ -15,7 +15,6 @@
     text-align: center;
 }
 
-/* Grid com 4 livros no desktop */
 .books-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -23,7 +22,6 @@
   gap: 10px;
   padding: 20px 30px;
 }
-
 /* Card */
 .book-card {
   width: 280px;             /* tamanho ideal do card */
@@ -33,24 +31,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-     cursor: pointer;
+  cursor: pointer;
 }
-
 /* Hover */
 .book-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
 }
-
-/* Imagem */    
-.book-card img {
-  width: 100%;
-  aspect-ratio: 3 / 4.3;    /* proporção perfeita de capa */
-  object-fit: cover;        /* mantém proporção */
-  border-radius: 10px;
-
-}
-
 
 /* Título */
 .book-card h3 {
@@ -66,37 +53,6 @@
     font-size: 13px;
     color: #5d6b80;
     margin: 0;
-}
-
-/* Tag */
-.tag {
-    background: #c3d6ff;
-    padding: 6px 12px;
-    border-radius: 10px;
-    font-size: 12px;
-    width: fit-content;
-    font-weight: bold;
-    color: #1e2b45;
-    margin-top: 4px;
-}
-
-h1 {
-  color: #26333D;
-  padding: 10px;
-  background-color: gray;
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.empty-box {
-  grid-column: 1 / -1;
-  text-align: center;
-  color: white;
-  padding: 20px;
-  font-size: 18px;
-  font-weight: 600;
-  justify-self: center;
 }
 /* TABLET: 2 colunas */
 @media (max-width: 1024px) {
