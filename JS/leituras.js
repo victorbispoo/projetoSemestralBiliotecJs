@@ -1,26 +1,37 @@
+// fallback — garante que a função exista mesmo sem detalhes.js
+if (typeof window.irParaDetalhes !== "function") {
+  window.irParaDetalhes = function(id) {
+    if (!id) return;
+    window.location.href = `detalhes.html?id=${id}`;
+  };
+}
+
 const API_URL = "http://localhost:3000";
-const id_usuario=4;  
+const id_usuario = 4;
 
 
 async function carregarReservas() {
   const statusGrid = document.getElementById("booksStatusGrid");
   statusGrid.innerHTML = "";
 
- const resp = await fetch(`${API_URL}/reservas/${id_usuario}`);
-const lista = await resp.json();
+  const resp = await fetch(`${API_URL}/reservas/${id_usuario}`);
+  const lista = await resp.json();
 
-lista.forEach(item => {
-  const card = document.createElement("div");
-  card.classList.add("book-card");
+  lista.forEach(item => {
+    const card = document.createElement("div");
+    card.classList.add("book-card");
 
-  card.innerHTML = `
+    card.innerHTML = `
     <img src="${item.caminho_capa}" alt="${item.titulo_livro}">
     <h3>${item.titulo_livro}</h3>
     <p class="tag">Devolução: ${item.data_devolucao}</p>
   `;
 
-  statusGrid.appendChild(card);
-})};
+    card.addEventListener("click", () => window.irParaDetalhes(item.id_livro));
+
+    statusGrid.appendChild(card);
+  })
+};
 
 async function carregarFavoritos() {
   const grid = document.getElementById("booksGrid");
@@ -43,6 +54,8 @@ async function carregarFavoritos() {
       </button>
     `;
 
+    card.addEventListener("click", () => window.irParaDetalhes(item.livro_id));
+
     grid.appendChild(card);
   });
 }
@@ -64,30 +77,13 @@ document.addEventListener("click", (e) => {
 });
 
 function adicionarEventos() {
-    const btnVoltar = document.getElementById("voltar_inicio");
+  const btnVoltar = document.getElementById("voltar_inicio");
 
-    if (btnVoltar) {
-        btnVoltar.addEventListener("click", () => {
-            window.history.back();
-        });
-    }
+  if (btnVoltar) {
+    btnVoltar.addEventListener("click", () => {
+      window.history.back();
+    });
+  }
 }
-
-
-document.addEventListener("click", async (e) => {
-    if (e.target.classList.contains("FavoriteBTN")) {
-
-        const idFavorito = e.target.getAttribute("FavoriteBTN");
-
-        const resposta = await fetch(`${API_URL}/favoritos/${idFavorito}`, {
-            method: "DELETE"
-        });
-
-        if (resposta.status === 204) {
-            const card = e.target.closest(".card-livro");
-            if (card) card.remove();
-        }
-    }
-});
 
 adicionarEventos();
