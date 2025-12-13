@@ -5,7 +5,7 @@ function adicionarEventos() {
   const EditLivro = document.getElementById("editar_livro")
   const ListarUsers = document.getElementById("listarUsers")
   const AddUsers = document.getElementById("Cadastrar")
-  const EditUsers = document.getElementById("editar_users");
+  const EditUsers = document.getElementById("editarUsers");
 
 
 
@@ -16,7 +16,7 @@ function adicionarEventos() {
   }
   if (ListarLivros) {
     ListarLivros.addEventListener("click", () => {
-      window.location.href = "../FrontEnd/listarLivros.html";
+      window.location.href = "../FrontDoADM/listarLivros.html";
     })
   }
   if (AddLivro) {
@@ -26,7 +26,7 @@ function adicionarEventos() {
   }
   if (EditLivro) {
     EditLivro.addEventListener("click", () => {
-      window.location.href = "EditarLivros.html";
+      window.location.href = "../FrontDoADM/EditLivros.html";
     })
   }
   if (ListarUsers) {
@@ -40,8 +40,8 @@ function adicionarEventos() {
     })
   }
   if (EditUsers) {
-    ListarUsers.addEventListener("click", () => {
-      window.location.href = "EditUsers.html";
+    EditUsers.addEventListener("click", () => {
+      window.location.href = "../FrontDoADM/EditUsers.html";
     })
   }
 }

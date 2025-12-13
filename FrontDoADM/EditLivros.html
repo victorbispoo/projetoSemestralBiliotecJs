@@ -1,0 +1,62 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Alunos</title>
+    </head>
+    <body>
+        <h1>Editar Livros</h1>
+        <form id="form-atualizar">
+            <div>
+                <label for="">ID*:
+                    <input type="number" id="id" placeholder="Digite seu id ex: 1" required>
+                </label>
+            <div>
+                <label for="">Titulo*:
+                    <input type="text" id="titulo" placeholder="Digite o titulo" required>
+                </label>
+            </div>
+            <div>
+                <label for="">Autor*:
+                    <input type="text" id="autor" placeholder="Digite o autor" required>
+                </label>
+            </div>
+            <div>
+                <label for="">Categoria:
+                    <input type="text" id="categoria" placeholder="Digite a categoria">
+                </label>
+            </div>
+            <div>
+                <label for="">Editora:
+                    <input type="text" id="uf" placeholder="Digite a editora">
+                </label>
+            </div>
+            <div>
+                <label for="">Ano de Publicação:
+                    <input type="text" id="ano_publicacao" placeholder="Digite o ano de publicação">
+                </label>
+            </div>
+            <div>
+                <label for="">Isbn:
+                    <input type="number" id="isbn" maxlength="13" placeholder="Digite o isbn">
+                </label>
+            </div>
+            <div>
+                <label for="">Formato:
+                    <input type="text" id="formato" placeholder="Digite o formato ex:PDF">
+                </label>
+            </div>
+              <div>
+                <label for="">Sinopse:
+                    <input type="text" id="sinopse" placeholder="Digite a Sinopse">
+                </label>
+            </div>
+            
+            <button id="enviar" type="submit">Enviar</button>
+            
+            <button id="limpar" type="reset">Limpar</button>
+        </form>
+        <script src="../JS_ADM/editlivros.js"></script>
+    </body>
+    </html>
