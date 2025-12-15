@@ -1,14 +1,14 @@
-import express from "express";
-import { listarAvaliacoes, criarAvaliacao ,  ListarAvaliacoesDeLivros} from "../controllers/avaliacoes.controllers.js";
+import express from "express"; 
+import { ListarAvaliacoesDeLivros, MediaAvaliacoesPorLivro, listarAvaliacoes, criarAvaliacao } from "../controllers/avaliacoes.controllers.js";
 
-const router = express.Router();
+const router = express.Router(); 
 
+router.get("/:id", listarAvaliacoes); 
 
-router.get("/", listarAvaliacoes);
+router.get("/medias", ListarAvaliacoesDeLivros); 
 
-router.get("/media", ListarAvaliacoesDeLivros);
+router.get("/medias/:id", MediaAvaliacoesPorLivro); 
 
-router.post("/", criarAvaliacao);
-
+router.post("/", criarAvaliacao); 
 
 export default router;

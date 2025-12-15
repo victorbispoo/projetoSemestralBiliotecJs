@@ -1,5 +1,4 @@
 import express from "express";
-import bodyParser from "body-parser";
 import cors from "cors";
 import usuarioRoutes from "./routes/usuario.routes.js";
 import livrosRoutes from "./routes/livros.routes.js";
@@ -13,9 +12,6 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use(cors());
-app.use(bodyParser.json());
-
-
 
 app.get("/", (req, res) => {
   res.send("API da Livraria funcionando!");
@@ -23,7 +19,7 @@ app.get("/", (req, res) => {
 
 app.use("/usuarios", usuarioRoutes);
 app.use("/livros", livrosRoutes);
-app.use("/avaliacoes", avaliacoesRoutes);
+app.use("/avaliacao", avaliacoesRoutes);
 app.use("/reservas", reservasRoutes);
 app.use("/favoritos", favoritosRoutes);
 app.use("/categorias", categoriaRoutes);
