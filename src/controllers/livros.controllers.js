@@ -8,6 +8,7 @@ function toNull(value) {
 }
 
 export async function PostarLivros(req, res) {
+<<<<<<< HEAD
     try {
         const {
             titulo,
@@ -44,13 +45,60 @@ export async function PostarLivros(req, res) {
                 toNull(ativo)
             ]
         );
+=======
+  try {
+    console.log("🔥 ENTROU NO POSTAR LIVROS");
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
-        res.json({ mensagem: "Livro postado com sucesso!" });
-    } catch (err) {
-        res.status(500).json({ erro: err.message });
-    }
+    const {
+      titulo,
+      autor,
+      categoria,
+      editora,
+      ano_publicacao,
+      isbn,
+      idioma,
+      formato,
+      sinopse
+    } = req.body;
+
+    const ativo = 1;
+>>>>>>> 30f1e1f09128e86d7a7070e55c9dee18fd4b7050
+
+    const anoPublicacaoFinal =
+      ano_publicacao === "" ? null : ano_publicacao;
+
+    const caminhoCapa = req.file
+      ? `/uploads/${req.file.filename}`
+      : null;
+
+    await db.query(
+      `INSERT INTO livros 
+      (titulo, autor, categoria, editora, ano_publicacao, isbn, idioma, formato, caminho_capa, sinopse, ativo)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        titulo,
+        autor,
+        categoria,
+        editora,
+        anoPublicacaoFinal,
+        isbn,
+        idioma,
+        formato,
+        caminhoCapa,
+        sinopse,
+        ativo
+      ]
+    );
+
+    res.status(201).json({ msg: "Livro cadastrado com sucesso" });
+
+  } catch (error) {
+    console.error("❌ ERRO AO INSERIR:", error);
+    res.status(500).json({ erro: error.message });
+  }
 }
-
 
 export async function ListarLivros(req, res) {
     try {
@@ -129,6 +177,7 @@ export async function AtualizarLivros(req, res) {
 
         await db.execute(
             `UPDATE livros SET 
+<<<<<<< HEAD
                     titulo = ?, 
                     autor = ?, 
                     categoria = ?, 
@@ -140,6 +189,20 @@ export async function AtualizarLivros(req, res) {
                     caminho_capa = ?, 
                     sinopse = ?
                 WHERE id = ?`,
+=======
+                titulo = ?, 
+                autor = ?, 
+                categoria = ?, 
+                editora = ?, 
+                ano_publicacao = ?, 
+                isbn = ?, 
+                idioma = ?, 
+                formato = ?, 
+                caminho_capa = ?, 
+                sinopse = ?, 
+                ativo = ?
+             WHERE id = ?`,
+>>>>>>> 30f1e1f09128e86d7a7070e55c9dee18fd4b7050
             [
                 titulo,
                 autor,
