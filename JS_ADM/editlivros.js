@@ -96,7 +96,7 @@ document.getElementById("form-atualizar").addEventListener("submit", async funct
 
     if (resposta.ok) {
       alert("Livro atualizado com sucesso!");
-      window.location.href = "index.html";
+      window.location.href = "../FrontDoADM/listarLivros.html";
     } else {
       const texto = await resposta.text();
       console.error("Erro no PUT:", resposta.status, texto);
