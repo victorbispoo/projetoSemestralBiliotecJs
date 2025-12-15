@@ -16,10 +16,10 @@ async function extrairListaUsuarios() {
         return [];
     }
 }
-    chk.addEventListener('change', function () {
-        if (senha) senha.type = chk.checked ? 'text' : 'password';
-    });
-    btnEntrar.addEventListener('click', async function (e) {
+chk.addEventListener('change', function () {
+    if (senha) senha.type = chk.checked ? 'text' : 'password';
+});
+btnEntrar.addEventListener('click', async function (e) {
     e.preventDefault();
     const listaUsuarios = await extrairListaUsuarios();
     if (!username || !senha) return;
@@ -29,17 +29,13 @@ async function extrairListaUsuarios() {
         (perfil.nome === usernameValue || perfil.email === usernameValue) && perfil.senha === senhaValue
     );
     if (usuarioEncontrado) {
-        console.log('Usuário encontrado:', usuarioEncontrado);
-        if(usuarioEncontrado.cargo === 'admin'){
-            localStorage.setItem('isAdmin', true);
-        }
-        else localStorage.setItem('isAdmin', false);
-        id = usuarioEncontrado.id;
-        localStorage.setItem('userId', id);
-        console.log('ID salvo no localStorage:', id);
-        window.location.href = '/FrontEnd/telaInicial.html';
+        const isAdmin = String(usuarioEncontrado.perfil).trim().toLowerCase() === 'admin';
+        localStorage.setItem('isAdmin', isAdmin.toString());
+        localStorage.setItem('perfil', usuarioEncontrado.perfil);
+        localStorage.setItem('userId', String(usuarioEncontrado.id));
+        window.location.href = '../FrontEnd/telaInicial.html';
     }
-    else{
+    else {
         alert('Usuário ou senha incorretos. Tente novamente.');
     }
 });

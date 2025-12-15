@@ -122,7 +122,6 @@ export async function AtualizarLivros(req, res) {
             formato,
             caminho_capa,
             sinopse,
-            ativo
         } = req.body;
 
         if (!titulo || !autor || !categoria)
