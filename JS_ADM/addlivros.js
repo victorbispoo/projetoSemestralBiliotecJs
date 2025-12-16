@@ -47,3 +47,9 @@ document.getElementById("formCadastro").addEventListener("submit", async e => {
 
   alert("Livro cadastrado");
 });
+
+function adicionarEventos() {
+    const btnVoltar = document.getElementById("voltar_inicio");
+    if (btnVoltar) btnVoltar.addEventListener("click", () => window.history.back());
+}
+adicionarEventos();

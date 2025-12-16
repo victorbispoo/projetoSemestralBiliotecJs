@@ -22,6 +22,17 @@ body {
 }
 
 /* =========================
+   TÍTULO
+========================= */
+
+h2 {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 1.6em;
+    font-weight: 500;
+    color: #333;
+}
+/* =========================
    FORMULÁRIO
 ========================= */
 
@@ -147,6 +158,25 @@ input:focus,
 #limpar:hover {
     background-color: #d6d6d6;
 }
+#voltar_inicio {
+    align-self: flex-start;   /* canto esquerdo */
+    margin: 20px;             /* distância do topo */
+
+    padding: 10px 22px;
+    background-color: #26333d;
+    color: #fff;
+
+    border: none;
+
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#voltar_inicio:hover {
+    background-color: #1c252c;
+}
+
 
 /* =========================
    RESPONSIVO

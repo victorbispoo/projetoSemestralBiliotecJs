@@ -121,6 +121,24 @@ td:last-child button {
     transition: background-color 0.25s, transform 0.15s, box-shadow 0.15s;
 }
 
+#voltar_inicio {
+    align-self: flex-start;   /* canto esquerdo */
+    margin: 20px;             /* distância do topo */
+
+    padding: 10px 22px;
+    background-color: #26333d;
+    color: #fff;
+
+    border: none;
+
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#voltar_inicio:hover {
+    background-color: #1c252c;
+}
 /* Primeiro botão = Editar */
 td:last-child button:first-child {
     background-color: #007bff;

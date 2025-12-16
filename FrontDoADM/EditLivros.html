@@ -1,94 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="../Css/cssAdm/editLivros.css" />
-  <link rel="stylesheet" href="../Css/header.css" />
-  <link rel="stylesheet" href="../Css/detalhes.css" />
-  <link rel="stylesheet" href="../Css/footer.css" />
-  <link rel="icon" href="../IMGS/Group.svg" type="image/x-icon">
-  <title>Editar Livros</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Css/cssAdm/editLivros.css" />
+    <link rel="stylesheet" href="../Css/header.css" />
+    <link rel="stylesheet" href="../Css/detalhes.css" />
+    <link rel="stylesheet" href="../Css/footer.css" />
+    <link rel="icon" href="../IMGS/Group.svg" type="image/x-icon">
+    <title>Editar Livros</title>
 </head>
+
 <body>
 
     <div id="header-placeholder"></div>
+    <button class="btn" id="voltar_inicio">Voltar</button>
 
-  <h1>Editar Livros</h1>
+    <h2>Editar Livros</h2>
 
-  <form id="form-atualizar">
-    <select id="select-livro">
-      <option value="">Selecione um livro</option>
-    </select>
+    <form id="form-atualizar">
+        <select id="select-livro">
+            <option value="">Selecione um livro</option>
+        </select>
 
-    <div>
-      <label>Título:
-        <input type="text" id="titulo" placeholder="Digite o título" required>
-      </label>
-    </div>
+        <div>
+            <label>Título:
+                <input type="text" id="titulo" placeholder="Digite o título" required>
+            </label>
+        </div>
 
-    <div>
-      <label>Autor:
-        <input type="text" id="autor" placeholder="Digite o autor" required>
-      </label>
-    </div>
+        <div>
+            <label>Autor:
+                <input type="text" id="autor" placeholder="Digite o autor" required>
+            </label>
+        </div>
 
-    <div>
-      <label>Categoria:
-        <input type="text" id="categoria" placeholder="Digite a categoria" required>
-      </label>
-    </div>
+        <div>
+            <label>Categoria:
+                <input type="text" id="categoria" placeholder="Digite a categoria" required>
+            </label>
+        </div>
 
-    <div>
-      <label>Editora:
-        <input type="text" id="editora" placeholder="Digite a editora">
-      </label>
-    </div>
+        <div>
+            <label>Editora:
+                <input type="text" id="editora" placeholder="Digite a editora">
+            </label>
+        </div>
 
-    <div>
-      <label>Ano de Publicação:
-        <input type="text" id="ano_publicacao" placeholder="Digite o ano de publicação">
-      </label>
-    </div>
+        <div>
+            <label>Ano de Publicação:
+                <input type="text" id="ano_publicacao" placeholder="Digite o ano de publicação">
+            </label>
+        </div>
 
-    <div>
-      <label>ISBN:
-        <input type="number" id="isbn" placeholder="Digite o isbn">
-      </label>
-    </div>
+        <div>
+            <label>ISBN:
+                <input type="number" id="isbn" placeholder="Digite o isbn">
+            </label>
+        </div>
 
-    <div>
-      <label>Formato:
-        <input type="text" id="formato" placeholder="Ex: PDF">
-      </label>
-    </div>
+        <div>
+            <label>Formato:
+                <input type="text" id="formato" placeholder="Ex: PDF">
+            </label>
+        </div>
 
-    <div>
-      <label>Idioma:
-        <input type="text" id="idioma" placeholder="Ex: Português">
-      </label>
-    </div>
+        <div>
+            <label>Idioma:
+                <input type="text" id="idioma" placeholder="Ex: Português">
+            </label>
+        </div>
 
-    <div>
-      <label>Caminho da capa:
-        <input type="text" id="caminho_capa" placeholder="URL ou caminho">
-      </label>
-    </div>
+        <div>
+            <label>Caminho da capa:
+                <input type="text" id="caminho_capa" placeholder="URL ou caminho">
+            </label>
+        </div>
 
-    <div>
-      <label>Sinopse:
-        <input type="text" id="sinopse" placeholder="Digite a sinopse">
-      </label>
-    </div>
+        <div>
+            <label>Sinopse:
+                <input type="text" id="sinopse" placeholder="Digite a sinopse">
+            </label>
+        </div>
 
-    <button id="enviar" type="submit">Enviar</button>
-    <button id="limpar" type="reset">Limpar</button>
-  </form>
+        <button id="enviar" type="submit">Enviar</button>
+        <button id="limpar" type="reset">Limpar</button>
+    </form>
 
-  <div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
-  <script src="../JS/header.js"></script>
-  <script src="../JS/footer.js"></script>
-  <script src="../JS_ADM/editlivros.js" defer></script>
+    <script src="../JS/header.js"></script>
+    <script src="../JS/footer.js"></script>
+    <script src="../JS_ADM/editlivros.js" defer></script>
 </body>
+
 </html>

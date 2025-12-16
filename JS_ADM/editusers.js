@@ -114,3 +114,8 @@ document.getElementById("form-atualizar").addEventListener("submit", async funct
 
 // Inicia carregamento da lista
 carregarUsuariosDisponiveis();
+function adicionarEventos() {
+    const btnVoltar = document.getElementById("voltar_inicio");
+    if (btnVoltar) btnVoltar.addEventListener("click", () => window.history.back());
+}
+adicionarEventos();
