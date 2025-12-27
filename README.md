@@ -8,7 +8,7 @@ O Bibliotec tem como objetivo simular o funcionamento básico de uma biblioteca,
 
 ## 🛠️ Tecnologias Utilizadas
 
-- Node.js <img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/e5bdbb1d-eb16-4854-b79b-193500edf7a0" />
+- Node.js <img width="25" height="25" alt="image" src="https://github.com/user-attachments/assets/e5bdbb1d-eb16-4854-b79b-193500edf7a0" />
 - Express
 - JavaScript
 - HTML5
