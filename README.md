@@ -8,12 +8,12 @@ O Bibliotec tem como objetivo simular o funcionamento básico de uma biblioteca,
 
 ## 🛠️ Tecnologias Utilizadas
 
-- Node.js <img width="25" height="25" alt="image" src="https://github.com/user-attachments/assets/e5bdbb1d-eb16-4854-b79b-193500edf7a0" />
-- Express
-- JavaScript
-- HTML5
-- CSS3
-- MySQL / MariaDB
+- Node.js <img width="15" height="15" alt="image" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" />
+- Express <img width="15" height="15" alt="image" src="https://cdn.worldvectorlogo.com/logos/expressjs.svg"/>         
+- JavaScript <img width="15" height="15" alt="image" src="https://github.com/user-attachments/assets/e5bdbb1d-eb16-4854-b79b-193500edf7a0" />
+- HTML5 <img width="15" height="15" alt="image" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+- CSS3 <img width="15" height="15" alt="image" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+- MySQL / MariaDB <img width="15" height="15" alt="image" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" /> / <img width="15" height="15" alt="image" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mariadb/mariadb-original.svg" />
 
 ## ⚙️ Funcionalidades
 
